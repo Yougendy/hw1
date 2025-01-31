@@ -18,6 +18,20 @@ void split(Node*& in, Node*& odds, Node*& evens)
 {
   /* Add code here */
 // WRITE YOUR CODE HERE
+if  (in == nullptr){
+	return; //if empty case
+}
+	Node* NextNode = in->next;
+if (in -> value % 2 != 0){
+odds = in; 
+odds->next = nullptr; 
+split(NextNode,odds->next,evens); //receive step
+}
+else{
+evens = in; 
+evens->next = nullptr;
+split(NextNode,odds,evens->next);
+}
 }
 
 /* If you needed a helper function, write it here */
